@@ -1,0 +1,49 @@
+
+
+@keyframes animation-text {
+    0% {opacity:0;}
+    40% {opacity:0;}
+    100% { opacity:1;}
+}
+@keyframes animation-left {
+    from {left: 85px;}
+    to { left: -30px;}
+}
+@keyframes animation-right {
+    from {right: 85px;}
+    to { right: -30px;}
+}
+
+.logo{display:inline-block; position:relative; font-family:Arial; cursor:pointer;
+color:#000000;
+  /* margin-top:50px; */
+}
+
+
+.logo .text{
+    overflow: hidden;
+    font-size: 25px;
+    /* line-height: 30px; */
+    text-align: center;
+    display: inline-block;
+    animation-name: animation-text;
+    animation-duration: 2s;
+}
+  
+.left{
+  position: absolute;
+    left: -30px;
+    font-size: 25px;
+    /* line-height: 40px; */
+    animation-name: animation-left;
+    animation-duration: 2.5s;
+  font-weight:600;
+}
+.right{    position: absolute;
+    right: -30px;
+    font-size: 25px;
+    /* line-height: 40px; */
+    animation-name: animation-right;
+    animation-duration: 2.5s;
+    font-weight:600;}
+

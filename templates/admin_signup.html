@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="static/css/all.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/Signup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">admin_SignUp</div>
+      <div class="content">
+        <form
+          action="{{ url_for('admin_signup') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          onsubmit="return validateUserData()"
+        >
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input
+                id="name"
+                oninput="validateName()"
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Enter your name"
+              />
+            </div>
+            
+            
+            <div class="input-box">
+              <span class="details"> Password</span>
+              <input
+                id="password"
+                type="password"
+                oninput="validateUserPassword()"
+                name="password"
+                class="form-control"
+                placeholder="Enter your password"
+              />
+            </div>
+            
+           
+            
+          </div>
+          <div class="button">
+            <input type="submit" value="Register" />
+          </div>
+        </form>
+        <a href="{{ url_for('admin_login') }}"
+          >Already have an account? Login here.</a
+        >
+      </div>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/Signup.js"></script>
+  </body>
+</html>

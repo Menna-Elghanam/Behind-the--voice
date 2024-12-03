@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Agents</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="bankdashboard.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/agents.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img style="width: 40px" src="img/recycling.png" alt="" />
+          <a class="logoname" href="{{ url_for('index') }}" style="text-decoration: none;">Behind The Voice</a>
+        </div>
+        <div class="searchbox">
+          <form action="{{ url_for('get_agents') }}" method="get">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search"
+              value="{{ search_query }}"
+            />
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <div class="navitem">
+          <div class="icons">
+            <ul>
+              <li>
+                <a href="{{ url_for('upload_file') }}">
+                  <i class="fa fa-solid fa-plus"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="account">
+            <h3 class="name">Add New Call</h3>
+            <!-- <span class="username">Here</span> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container-body">
+        <div class="sidebar">
+          <ul>
+            <li class="dashboard">
+              <i class="fa fa-dashcube"></i>
+              <a href="#">Dashboard</a>
+            </li>
+            
+            <li>
+              <i class="fa fa-list"></i>
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMTY4NTNmNWQtNDY2YS00ZmVjLTgzNDUtYTNjYjBjZjllNjU5IiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9">list1</a>
+            </li>
+            <li>
+              <i class="fa fa-list"></i>
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiNjA5MTAwYmYtOGM3ZS00YjlmLWI5YWEtMWVhNmU1OTE3NzFjIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9">list2</a>
+            </li>
+            <li>
+              <i class="fa fa-list"></i>
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiMzI5OGMzMmItZTY5Ny00YWZjLThlNzYtM2M1MzQ0YTJiNDk1IiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9">list3</a>
+            </li>
+            <li>
+              <i class="fa fa-list"></i>
+              <a href="https://app.powerbi.com/view?r=eyJrIjoiN2E5YzJmNGUtZGVkNy00ZTgyLTgwMzItOGNmZjFlYTUyODFjIiwidCI6ImVhZjYyNGM4LWEwYzQtNDE5NS04N2QyLTQ0M2U1ZDc1MTZjZCIsImMiOjh9">list4</a>
+            </li>
+            
+           
+            
+            
+            
+          </ul>
+        </div>
+        <div class="cards">
+          <div class="row row-1">
+            <div class="col">
+              <div class="balance-card">
+                <h1>All Agents</h1>
+
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Agent_ID</th>
+                      <th>Audio</th>
+                      <th>Upload Date & Time</th>
+                      <th>Predict Emotion</th>
+                      <th>Transcription</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for agent in agents %}
+                    <tr>
+                      <td>
+                        <a
+                          href="{{ url_for('profile', name=agent.agent_name) }}"
+                          >{{ agent.agent_name }}</a
+                        >
+                      </td>
+                      <td>{{ agent.agent_id }}</td>
+                      <td>
+                        <audio
+                          controls
+                          src="data:audio/mp3;base64,{{ agent.audio_b64 }}"
+                        >
+                          Your browser does not support the audio element.
+                        </audio>
+                      </td>
+                      <td>{{ agent.upload_date_time }}</td>
+                      <td>
+                        <a href="{{ url_for('predict', id=agent.audio_id) }}">Predict Emotion</a>
+
+                      </td>
+                      <td>
+                        <a href="{{ url_for('transcribe', id=agent.audio_id) }}">Transcribe</a>
+
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="pagination">
+                  <form
+                    method="get"
+                    action="{{ url_for('get_agents') }}"
+                    class="pagination-form"
+                  >
+                    <label for="per_page" class="form-label"
+                      >Items per page:</label
+                    >
+                    <input
+                      type="number"
+                      id="per_page"
+                      name="per_page"
+                      value="{{ per_page }}"
+                      min="1"
+                      class="form-input"
+                    />
+                    <input
+                      type="hidden"
+                      name="search"
+                      value="{{ search_query }}"
+                    />
+                    <button type="submit" class="form-button">Update</button>
+                  </form>
+
+                  <ul>
+                    {% if page > 1 %}
+                    <li>
+                      <a
+                        href="{{ url_for('get_agents', page=page-1, per_page=per_page, search=search_query) }}"
+                        >Previous</a
+                      >
+                    </li>
+                    {% else %}
+                    <li class="disabled"><span>Previous</span></li>
+                    {% endif %} {% for page_num in range(1, total_pages + 1) %}
+                    {% if page_num == page %}
+                    <li class="active"><span>{{ page_num }}</span></li>
+                    {% else %}
+                    <li>
+                      <a
+                        href="{{ url_for('get_agents', page=page_num, per_page=per_page, search=search_query) }}"
+                        >{{ page_num }}</a
+                      >
+                    </li>
+                    {% endif %} {% endfor %} {% if page < total_pages %}
+                    <li>
+                      <a
+                        href="{{ url_for('get_agents', page=page+1, per_page=per_page, search=search_query) }}"
+                        >Next</a
+                      >
+                    </li>
+                    {% else %}
+                    <li class="disabled"><span>Next</span></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

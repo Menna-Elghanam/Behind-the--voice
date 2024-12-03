@@ -1,0 +1,97 @@
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send Mail</title>
+
+<link rel="stylesheet" href="./static/css/send_mail.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Send Mail</h2>
+        <form action="{{ url_for('send_mail', email=email) }}" method="post">
+
+        
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <label for="attachment">Attachment:</label>
+        <input type="file" id="attachment" name="attachment">
+        
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+</body>
+</html>  -->
+
+
+
+
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href=".static/css/all.min.css">
+    <link rel="stylesheet" href=".static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/send_mail.css">
+   </head>
+<body>
+
+   
+    <div class="logo">
+      <img />
+      <a class="logoname" href="{{ url_for('index') }}" style="text-decoration: none;">Behind The Voice</a>
+    </div>
+   
+  <div class="container">
+    
+    <div class="title">Send Mail</div>
+    <div class="content">
+         
+      <form action="{{ url_for('send_mail') }}" method="post">
+        <div class="user-details">
+          <div class="input-box my-3 w-100">
+            <span class="details" >Subject</span>
+            <input type="text" class="form-control" placeholder="Enter your Subject" name="subject">
+          </div>
+          <div class="input-box w-100">
+            <span class="details" >Message</span>
+            <textarea id="myTextarea" class="form-control" placeholder="Enter your Message" name="message"></textarea>
+          </div>
+          <div class="image-upload d-flex ">
+            <label>Attachment : &nbsp; &nbsp;    </label>
+            <input type="file" id="attachment" name="attachment">
+        </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Send">
+        </div>
+         <!-- Flash message block -->
+     {% with messages = get_flashed_messages() %}
+     {% if messages %}
+         <div class="alert alert-success">
+             {{ messages[0] }}
+         </div>
+     {% endif %}
+ {% endwith %}
+      </form>
+    </div>
+  </div>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+
+
+
+</html> 
+ 

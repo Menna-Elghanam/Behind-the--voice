@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Call Recording and Agent Info</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/upload.css') }}"> -->
+<link rel="stylesheet" href="/static/css/upload.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <p>Upload Call Recording and Agent Info</p>
+      <div class="content">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+
+
+       
+        <!-- <div class="form-group"> -->
+          <div class="content">
+            <div class="user-details">
+              <div class="input-box">
+                <div class="form-title">
+            <label for="agent_name" class="form-label">Agent Name:</label>
+          </div>
+
+            <input
+              type="text"
+              name="agent_name"
+              id="agent_name"
+              required
+              class="form-control"
+            />
+          </div>
+          <div class="input-box">
+            <div class="form-title">
+            <label for="agent_email" class="form-label">Agent ID:</label>
+          </div>
+            <input
+              type="text"
+              name="agent_id"
+              id="agent_id"
+              required
+              class="form-control"
+            />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="audio_file" class="form-label">Call Recording:</label>
+          <input type="file" name="file" accept="audio/*" required>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Upload</button>
+      </form>
+      </div>
+
+    </div>
+  </body>
+</html> 
+ 

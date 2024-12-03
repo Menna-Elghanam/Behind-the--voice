@@ -1,0 +1,141 @@
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+h2 {
+  color: #343a40;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table.dataframe {
+  font-size: 14px;
+}
+
+table.dataframe th, table.dataframe td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+table.dataframe th {
+  background-color: #007bff;
+  color: white;
+}
+
+table.dataframe tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+table.dataframe tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.plot-image {
+  width: 100%;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+} */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #092441;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+h2 {
+  color: #343a40;
+  border-bottom: 2px solid #092441;
+  padding-bottom: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table.dataframe {
+  font-size: 14px;
+}
+
+table.dataframe th, table.dataframe td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #dee2e6;
+}
+
+table.dataframe th {
+  background-color: #092441;
+  color: white;
+}
+
+table.dataframe tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+table.dataframe tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.plot-container {
+  margin-top: 20px;
+}

@@ -1,0 +1,19 @@
+/* team */
+.team .layer{
+    background-color:  rgba(0, 195, 218, 0.9);
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    font-size: small;
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+  }
+  .team-member:hover .layer{
+    opacity: 1;
+    top: 0;
+  }
+  a  {
+    text-decoration: none;
+    color: white;
+  }
+  

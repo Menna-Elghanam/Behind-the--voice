@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Behind The Voice</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="static/css/circle.css">
+    <link rel="stylesheet" href="static/css/all.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="static/css/media.css" />
+    <link rel="stylesheet" href="static/css/navbarLogo.css" />
+    <link rel="stylesheet" href="./../static/footer/css/style.css">   
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav  
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow p-0"
+    >
+      <div class="container py-1">
+        <div class="container d-flex justify-content-between">
+          <div class="logo">
+            <span class="left">{</span>
+            <span class="right">}</span>
+            <span class="text">Behind The Voice</span>
+          </div>
+          <button
+            onclick="toggle()"
+            class="navbar-toggler border-0 border-start"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span id="nav-toggler" class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div
+          class="collapse navbar-collapse w-100 p-0"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#home"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Features">Features</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#works">Works</a>
+            </li> -->
+            <div class="aligncenter">
+              
+            </div>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a href="{{ url_for('signup') }}">Sign Up</a> 
+               <a href="{{ url_for('login') }}">Login</a> -->
+
+              <!-- <a class="nav-link" href="login.html">Login</a> -->
+            <!-- </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a> 
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+            </li>
+            <div class="nav-item nav-socials ms-3 d-lg-inline">
+              <div class="nav-vr position-absolute"></div>
+              <div class="icons ms-3 d-flex align-items-center h-100">
+                <a class="fa-brands fa-facebook-f me-3 text-decoration-none" href="https://www.facebook.com/"></a>
+                <a class="fa-brands fa-twitter me-3 text-decoration-none" href="https://twitter.com/home?lang=en"></a>
+                <a class="fa-brands fa-instagram text-decoration-none" href="https://www.instagram.com/"></a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar
+
+    <!-- header -->
+    <header class="vh-100" id="home">
+      <div
+        id="carouselExampleIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators mb-5">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="first-header vh-100">
+              <div
+                class="layer vh-100 d-flex justify-content-center align-items-center"
+              >
+                <div class="header-content text-white text-center">
+                  <h2 class="fa-6x fw-bolder">Behind The Voice</h2>
+                  <h5 class="mb-5">
+                    Transforming calls into actionable emotional data insights.
+                  </h5>
+                  <a href="{{ url_for('admin_signup') }}" class="btn btn-outline-light px-4 py-3 me-2"
+                    >Try Free</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="second-header vh-100">
+              <div
+                class="layer vh-100 d-flex justify-content-center align-items-center"
+              >
+                <div class="header-content text-white text-center">
+                  <h2 class="fa-6x fw-bolder text-capitalize">
+                    Emotion in Every Tone
+                  </h2>
+                  <h5 class="mb-5">
+                    The future of call center excellence.
+                    <div class="mt-5">
+                      <a
+                        href="#contact"
+                        class="btn btn-outline-light px-4 py-3"
+                      >
+                        Contact us
+                      </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div
+            class="header-slider vh-100 d-flex flex-column justify-content-center" >
+                    <button
+                      class="carousel-control-prev"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="prev"
+                    >
+                      <span
+                        class="move-header px-3 py-2 position-relative"
+                        aria-hidden="true"
+                      >
+            <div
+                          class="move-layer w-100 h-100 position-absolute"
+            ></div>
+                        <span class="position-relative fw-bolder">
+                          <i class="fa-solid fa-arrow-left-long"></i>
+                        </span>
+                      </span>
+                    </button>
+                    <button
+                      class="carousel-control-next"
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide="next"
+                    >
+                      <span
+                        class="move-header px-3 py-2 position-relative"
+                        aria-hidden="true"
+                      >
+            <div
+                          class="move-layer w-100 h-100 position-absolute"
+            ></div>
+                        <span class="position-relative fw-bolder">
+                          <i class="fa-solid fa-arrow-right-long"></i>
+                        </span>
+                      </span>
+                    </button>
+                    </div>
+    </header>
+                    <!-- end of header -->
+                     
+                    <!-- about -->
+
+                    <section id="about" class="about border-bottom pb-5">
+                      <div class="container">
+                        <div class="about-content text-center">
+                          <div class="title-text">
+                            <H1>WHAT WE DO?</H1>
+                          </div>
+                          <p class="lead">
+                            "We're a team creating a website. Our goal is to use
+                            machine learning to predict emotions in phone
+                            conversations, especially in call centers. We want
+                            to understand how people express emotions when they
+                            talk, and then use this understanding to improve how
+                            call centers work. Our project aims to make
+                            communication clearer and more efficient."
+                          </p>  
+                          <a id="Features"
+                            href="{{ url_for('about') }}"
+                            class="btn border rounded-0 p-3 my-5 border-1"
+                          >
+                            READ MORE
+                          </a>
+                        </div>
+                      </div>
+                    </section>
+                    <!-- end of about -->
+
+                     <!-- start of feature  -->
+
+                    <section  class="feature">
+
+                      <div  class="title-text">
+                        <p class="pb-3"> FEATURES</p>
+                        <H1>Speaker Diarization</H1>
+                      </div>
+                    
+                      <div class="feature-box">
+                        <div class="text-container">
+                          <h3>Dividing Audio Streams by Speaker Identity
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-volume-high"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Speaker diarisation (or diarization) is the process
+                                 of partitioning an audio stream containing
+                                  human speech into homogeneous segments
+                                   according to the identity of each speaker.
+                              </p>
+                    
+                            </div>
+                          </div>
+                    
+                          <h3>Improving Transcription Clarity with Speaker Turn Structuring
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-wave-square"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>It can enhance the readability of an automatic
+                                 speech transcription by structuring the audio 
+                                 stream into speaker turns.
+                              </p>
+                    
+                            </div>
+                          </div>
+                    
+                    
+                          <h3>The Role of Speaker Segmentation and Clustering in Diarization</h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-circle-nodes"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>It is used to answer the question
+                                 "who spoke when?" Speaker diarisation is a
+                                  combination of
+                                 speaker segmentation and speaker clustering.
+                              </p>
+                    
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="image-container">
+                          <img src="static/img/25.png" alt="">
+                    
+                        </div>
+                    
+                      </div>
+                    
+                    </section>
+                    <section class="feature_2">
+
+                      <div class="title-text">
+                        <!-- <p class="pb-3"> FEATURES</p> -->
+                        <H1>Transcription</H1>
+                      </div>
+                    
+                      <div class="feature-box">
+                        <div class="text-container">
+                          <h3>Transcription: Turning Speech into Text
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-spell-check"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Transcription changes spoken words into text, making it easier to keep track of audio content.
+
+                              </p>
+                    
+                            </div>
+                          </div>
+                    
+                          <h3>Fast and Accurate Transcription Tools
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Automatic transcription tools use smart technology to quickly and accurately turn audio into text.
+                              </p>
+                    
+                            </div>
+                          </div>
+                    
+                    
+                          <h3>Why Transcription Matters in Media, Law, and Research
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-scale-balanced"></i>  
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Transcriptions are important for keeping precise records in journalism, legal work, and research.
+
+                              </p>
+                    
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="image-container2">
+                          <img src="static/img/23.jpeg" alt="">
+                    
+                        </div>
+                    
+                      </div>
+                    
+                    </section>
+                    <!-- end of 2 features  -->
+                     <!-- start of 3 feature -->
+                     <section class="feature_3">
+
+                      <div class="title-text">
+                        <!-- <p class="pb-3"> FEATURES</p> -->
+                        <H1>Emotion Detection</H1>
+                      </div>
+                    
+                      <div class="feature-box">
+                        <div class="text-container">
+                          <h3>Emotion Detection with CNN and LSTM
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-regular fa-face-grin-tears"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Emotion detection finds feelings in text or
+                                 speech using CNN and LSTM models, which act 
+                                 like the brain.
+                              </p>
+                    
+                            </div>
+                          </div>
+                    
+                          <h3>Better Emotion Detection with CNNs and LSTMs
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>CNNs and LSTMs help detect emotions by looking at patterns and context.
+                              </p>
+                            </div>
+                          </div>
+                    
+                    
+                          <h3>How CNN and LSTM Help in Finding Emotions
+                          </h3>
+                    
+                          <div class="features-desc">
+                    
+                            <div class="feature-icon"> 
+                              <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                    
+                            <div class="feature-text">
+                              <p>Emotion detection helps in understanding user feelings in areas like customer service, social media, and mental health.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="image-container3">
+                          <img src="static/img/24.jpeg" alt="">
+                    
+                        </div>
+                    
+                      </div>
+                    
+                    </section>
+
+
+                     <!-- end of 3 feature -->
+                    <!-- start of circle  -->
+                    <!-- <div class="title-text m-5">
+                      <p class="pb-3"> FEATURES</p>
+                      <H1>Why Choose Us</H1>
+                    </div>
+                    <div class="CC">
+
+                      <div id="circle-container" class="circle-container w-50">
+                          <div class="circle">
+                              <div class="quarter top-left"><div class="text-cc">Text 1</div></div>
+                              <div class="quarter top-right"><div class="text-cc">Text 2</div></div>
+                              <div class="quarter bottom-left"><div class="text-cc">Text 3</div></div>
+                              <div class="quarter bottom-right"><div class="text-cc">Text 4</div></div>
+                              <div class="center-circle">
+                              <div class="cc-text">Center</div>
+                              </div>
+                          </div>
+
+                          
+                      </div>
+                      <div class="w-50 bg-danger">
+                        <h1>Experienced Staff
+                        </h1>
+                        <h1>Experienced Staff
+                        </h1>
+                        <h1>Experienced Staff
+                        </h1>
+                      </div>
+                  </div> -->
+
+
+                    <!-- end of circle  -->
+
+
+
+                    <!-- Team -->
+                    <!-- <section class="team py-5" id="team">
+                      <div class="container">
+                        <div class="section-header text-center pt-5">
+                          <div
+                            class="watermarked d-flex justify-content-center position-relative"
+                          >
+                            <h2 class="h1 fw-bolder">Team</h2>
+                            <h3 class="position-absolute">T</h3>
+                          </div>
+                          <h6 class="my-5">WHO WE ARE?</h6>
+
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Blanditiis pariatur mollitia, quaerat facilis
+                            obcaecati reiciendis ducimus fuga voluptatem
+                            quibusdam optio deleniti minus ipsa qui accusantium
+                            fugit, veniam maxime officia. Voluptas, magnam! Eum
+                            nam necessitatibus temporibus quasi, id perspiciatis
+                            debitis totam.
+                          </p>
+                          <a
+                            href="Team.html"
+                            class="btn btn-main px-4 py-3 me-2"
+                            >Read more</a
+                          >
+                        </div>
+                      </div>
+                    </section> -->
+                    <!-- end of the team -->
+                    <!-- comments -->
+
+                    <!-- end of comment -->
+
+                    <!-- contacts -->
+
+                    <section class="contact m-0 p-0" id="contact">
+                      <div class="container-fluid">
+                        <div class="row">
+                          <div class="col-lg-6 p-0 position-relative">
+                            <div class="map">
+                              <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d40027.81084530229!2d29.93611327568001!3d31.206682441986803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1701659354258!5m2!1sen!2seg"
+                                width="100%"
+                                height="750"
+                                style="border: 0"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                              ></iframe>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 p-5">
+                            <div class="container d-flex flex-column">
+                              <div class="section-header pt-5">
+                                <div
+                                  class="watermarked d-flex justify-content-start position-relative"
+                                >
+                                  <h1 class="fw-bolder">Get in Touch</h1>
+                                  <h3 class="position-absolute">G</h3>
+                                </div>
+                                <p class="mb-5">let's work together.</p>
+                              </div>
+                              <form
+                                id="ContactUsForm"
+                                class="ContactUs"
+                                onsubmit="return validateContactUsData()"
+                              >
+                                <div class="my-3">
+                                  <label for="ContactUsFirstName"
+                                    >First Name</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    name="ContactUsFirstName"
+                                    id="ContactUsFirstName"
+                                    required
+                                    oninput="validateContactUsFirstName()"
+                                  />
+                                </div>
+                                <div class="my-3">
+                                  <label for="ContactUsLastName"
+                                    >Last Name</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    name="ContactUsLastName"
+                                    required
+                                    id="ContactUsLastName"
+                                    oninput="validatevalidateContactUsLastName()"
+                                  />
+                                </div>
+                                <div class="my-3">
+                                  <label for="ContactUsEmail">Your Email</label>
+                                  <input
+                                    type="email"
+                                    class="form-control"
+                                    name="ContactUsEmail"
+                                    required
+                                    id="ContactUsEmail"
+                                    oninput="validateContactUsEmail()"
+                                  />
+                                </div>
+                                <div class="my-3">
+                                  <label for="ContactUsPhone"
+                                    >Phone Number</label
+                                  >
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    maxlength="11"
+                                    id="ContactUsPhone"
+                                    name="ContactUsPhone"
+                                    required
+                                    oninput="validateContactUsPhone()"
+                                  />
+                                </div>
+                                <div class="my-3">
+                                  <label for="ContactUsMessage"
+                                    >Your Message</label
+                                  >
+                                  <textarea
+                                    class="form-control"
+                                    id="ContactUsMessage"
+                                    rows="3"
+                                    required
+                                    name="ContactUsMessage"
+                                  ></textarea>
+                                </div>
+                                <button type="submit" class="button-submit">
+                                  Send Message
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                    </section>
+
+                   <footer class="footer-14398">
+                      <div class="container mx-auto">
+                        <div class="row mb-4 ">
+                          <div class="col-md-6 text-center pt-5">
+                            <a href="#home" class="footer-site-logo">BEHIND THE VOICE</a>
+                            <P>Our goal is to use machine learning to predict emotions in phone conversations, especially in call centers.</P>
+                          </div>
+                          <div class="col-md-2 ml-auto">
+                            <h3>Features</h3>
+                            <ul class="list-unstyled links">
+                              <li><a>Emotion Detection</a></li>
+                              <li><a>Speech Diarization</a></li>
+                              <li><a>Transcription Services</a></li>
+                              <li><a>Real-Time Analysis</a></li>
+                              <li><a>User Scenarios</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-2 ml-auto">
+                            <h3>Resources</h3>
+                            <ul class="list-unstyled links">
+                              <li><a>Research Papers</a></li>
+                              <li><a>Blog</a></li>
+                              <li><a>Case Studies</a></li>
+                              <li><a>Tutorials</a></li>
+                              <li><a>FAQs</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-md-2 ml-auto">
+                            <h3>About</h3>
+                            <ul class="list-unstyled links">
+                              <li><a>Our Story</a></li>
+                              <li><a>Mission & Values</a></li>
+                              <li><a>Team</a></li>
+                              <li><a>Careers</a></li>
+                              <li><a>Contact</a></li>
+                            </ul>
+                          </div>
+                        </div>
+              
+                        <div class="row mb-4">
+                          <div class="col-12 pb-4">
+                            <div class="line"></div>
+                          </div>
+                          <div class="col-md-12 text-center">
+                            <ul class="list-unstyled link-menu nav-left">
+                              <li><a>Privacy Policy</a></li>
+                              <li><a>Terms &amp; Conditions</a></li>
+                              <li><a>Code of Conduct</a></li>
+                            </ul>
+                          </div>
+
+                        </div>
+              
+                        <div class="row">
+                          <!-- <div class="col-md-12 text-center"> -->
+                            <!-- <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, fuga. Ex at maxime eum odio quibusdam pariatur expedita explicabo harum! Consectetur ducimus delectus nemo, totam odit!</small></p> -->
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </footer>
+  
+
+    <!-- JS -->
+     <!-- <script src=".static/js/circle.js"></script> -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.3.1.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="./../static/js/all.min.js"></script>
+
+  </body>
+</html>

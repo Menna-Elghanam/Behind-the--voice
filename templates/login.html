@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="{{ url_for('login') }}" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+    </form>
+    <br/>
+    <a href="{{ url_for('signup') }}">Don't have an account? Sign up here.</a>
+    
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="static/css/all.min.css" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/Login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">Login</div>
+      <div class="content">
+        <form action="{{ url_for('login') }}" method="POST">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input
+                id="name"
+                oninput="validateName()"
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input
+                id="UserPassword"
+                type="password"
+                class="form-control"
+                oninput="validateUserPassword()"
+                name="password"
+                placeholder="Enter your password"
+              />
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Login" />
+          </div>
+
+          <a href="{{ url_for('signup') }}"
+            >Don't have an account? Sign up here.</a
+          >
+        </form>
+      </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/Login.js"></script>
+  </body>
+</html>
